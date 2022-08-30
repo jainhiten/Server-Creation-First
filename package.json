@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "name": "servers",
+  "version": "1.0.0",
+  "description": "Node js server my first server",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "Hiten",
+  "license": "ISC"
+}
