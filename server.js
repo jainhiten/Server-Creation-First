@@ -19,10 +19,33 @@ http
                 body += chunk;
             }).on('end',() => {
                 body += JSON.parse(body);
-                console.log("data: ", body);
+                let newToDo = toDoList;
+                newToDo.push(body.item);
+                response.writeHead(201);
             });
 
-        }else{
+        }
+        else if (method === "DELETE") {
+            let body = "";
+            request.on('error', () => {
+                console.error(err)
+
+            })
+            .on('data', (chunk) =>{
+                body += chunk;
+            }).on('end', () => {
+                body = JSON.parse(body);
+                let deleteThis = body.item;
+
+                for(let i = 0; i < toDolist.length; i++){
+                    if(toDolist[i] === deleteThis)
+                      toDolist.splice(i, 1);
+                      break;
+                }
+            request.writeHead(201);
+            });
+        } 
+        else{
             response.writehead(404);
         }
     }else {
